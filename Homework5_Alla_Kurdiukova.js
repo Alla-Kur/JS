@@ -3,34 +3,34 @@ const services = {
     "cut": "100 uah",
     "shaving": "80 uah",
     "washing": "60 uah",
-    getCut(){
-        console.log(`service Cut: ${this.cut}`);
-    },
-    getSum(...services) {
-       let total = 0;
-       for (const service of services) {
-        total += service;      
-     }
-     console.log(`services Sum: ${this.services}`);
-    },
-    getMax() {
-        Math.max();
-      console.log(`services Max: ${this.services}`);
+// Десь тут має бути деструктуризація чи вона не потрібна в цьому завданні?
+price () {
+function sum(...numbers) {
+    let total = 0;
+    for (const number of numbers) {
+        total += number;
+    }
+  return  total;
+}
+const price = sum(this);
+console.log("The total cost of services: ", price);
+},
+    maxPrice() {
+        console.log("services maxPrice: ", Math.max(this)); // Десь тут має бути застосований Number.parseInt(), але не розумію як
      },
-     getMin() {
-        Math.min();
-      console.log(`services Min: ${this.services}`);
+     minPrice() {
+      console.log("services minPrice: ", Math.min(this)); // Десь тут має бути застосований Number.parseInt(), але не розумію як
      }
 };
-services.getCut();
-services.getSum();
-services.getMax();
-services.getMin();
+
+services.price();
+services.maxPrice();
+services.minPrice();
 
 services.makeUp = "110 uah";
 services["hairstyle"] = "120 uah";
 
-// console.log(services);
+console.log(services);
 
 // const {cut, shaving, washing, makeUp, hairstyle} = services;
 // // console.log(cut, typeof cut);
@@ -41,32 +41,4 @@ services["hairstyle"] = "120 uah";
 // const makeUpNum = Number.parseInt(makeUp);
 // const hairstyleNum = Number.parseInt(hairstyle);
 // // console.log(cutNum, typeof cutNum);
-
-// function sum(...numbers) {
-//     let total = 0;
-//     for (const number of numbers) {
-//         total += number;
-//     }
-//   return  total;
-// }
-// const price = sum(cutNum, shavingNum, washingNum, makeUpNum, hairstyleNum);
-// console.log("The total cost of services: ", price);
-
-
-// function min() {
-//     return Math.min();
-// }
-// const minPrice = min(cutNum, shavingNum, washingNum, makeUpNum, hairstyleNum);
-// console.log("The minimum cost of the service: ", minPrice); // Результат: Infinity
-
-// function max() {
-//     return Math.max();
-// }
-// const maxPrice = max(cutNum, shavingNum, washingNum, makeUpNum, hairstyleNum);
-// console.log("The maximum cost of the service: ", maxPrice); // Результат: -Infinity
-
-
-
-
-
 
