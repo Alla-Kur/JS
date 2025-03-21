@@ -4,54 +4,50 @@ const services = {
   washing: "60 uah",
 
 price () {
+  let price = 0;
   for (let key in services) {
-    if (typeof this[key] === Function) {
-      continue;
-    }
-function sum(...numbers) {
-    let total = 0;
-    for (const number of numbers) {
-        total += number;
-    }
-  return  total;
+    let keyType = typeof this[key];
+    if (keyType === "string" || keyType === "number") {
+      price += Number.parseInt(this[key]);
 }
-const price = sum(this);
-console.log("The total cost of services: ", price);
 }
+return price;
 },
 maxPrice() {
+  let num = 0;
   for (let key in services) {
-    if (typeof this[key] === Function) {
-      continue;
-    }
-    num = Number.parseInt(this[key]);
-      console.log(num, typeof num);
+    let keyType = typeof this[key];
+    if (keyType === "string" || keyType === "number") {
+      if (Number.parseInt(this[key]) > num) {
+        num = Number.parseInt(this[key]);
+      };
     }; 
-    console.log("services maxPrice: ", Math.max(num)); 
-  },
-   
-minPrice() {
-  for (let key in services) {
-    if (typeof this[key] in services === Function) {
-      continue;
   }
-    num2 = Number.parseInt(this[key]);
-    console.log(num2, typeof num2);
-};
-console.log("services minPrice: ", Math.min(num2));
+  return num;
 },
-// addService () {
-// this.push([key]);
-// },
+minPrice() {
+  let num = Infinity;
+  for (let key in services) {
+    let keyType = typeof this[key];
+    if (keyType === "string" || keyType === "number") {
+      if (Number.parseInt(this[key]) < num) {
+        num = Number.parseInt(this[key]);
+      };
+    }; 
+  }
+  return num;
+},
 };
-services.price();
-services.maxPrice();
-services.minPrice();
-// services.addService(makeUp, "110 uah");
 
 services.makeUp = "110 uah";
 services["hairstyle"] = "120 uah";
 
+console.log("Total price: ", services.price());
+console.log("Max price: ", services.maxPrice());
+console.log("Min price: ", services.minPrice());
 
-console.log(services);
+
+
+
+
 
