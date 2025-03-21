@@ -1,10 +1,13 @@
-
 const services = {
-    "cut": "100 uah",
-    "shaving": "80 uah",
-    "washing": "60 uah",
-// Десь тут має бути деструктуризація чи вона не потрібна в цьому завданні?
+  cut: "100 uah",
+  shaving: "80 uah",
+  washing: "60 uah",
+
 price () {
+  for (let key in services) {
+    if (typeof this[key] === Function) {
+      continue;
+    }
 function sum(...numbers) {
     let total = 0;
     for (const number of numbers) {
@@ -14,31 +17,41 @@ function sum(...numbers) {
 }
 const price = sum(this);
 console.log("The total cost of services: ", price);
+}
 },
-    maxPrice() {
-        console.log("services maxPrice: ", Math.max(this)); // Десь тут має бути застосований Number.parseInt(), але не розумію як
-     },
-     minPrice() {
-      console.log("services minPrice: ", Math.min(this)); // Десь тут має бути застосований Number.parseInt(), але не розумію як
-     }
+maxPrice() {
+  for (let key in services) {
+    if (typeof this[key] === Function) {
+      continue;
+    }
+    num = Number.parseInt(this[key]);
+      console.log(num, typeof num);
+    }; 
+    console.log("services maxPrice: ", Math.max(num)); 
+  },
+   
+minPrice() {
+  for (let key in services) {
+    if (typeof this[key] in services === Function) {
+      continue;
+  }
+    num2 = Number.parseInt(this[key]);
+    console.log(num2, typeof num2);
 };
-
+console.log("services minPrice: ", Math.min(num2));
+},
+// addService () {
+// this.push([key]);
+// },
+};
 services.price();
 services.maxPrice();
 services.minPrice();
+// services.addService(makeUp, "110 uah");
 
 services.makeUp = "110 uah";
 services["hairstyle"] = "120 uah";
 
+
 console.log(services);
-
-// const {cut, shaving, washing, makeUp, hairstyle} = services;
-// // console.log(cut, typeof cut);
-
-// const cutNum = Number.parseInt(cut);
-// const shavingNum = Number.parseInt(shaving);
-// const washingNum = Number.parseInt(washing);
-// const makeUpNum = Number.parseInt(makeUp);
-// const hairstyleNum = Number.parseInt(hairstyle);
-// // console.log(cutNum, typeof cutNum);
 
