@@ -17,20 +17,17 @@ var arr = [
   ];
 
   function findEmail(arr) {
-
+    const pattern = /[A-Za-z0-9\.-_]+(@gmail|@yahoo)\.com/;
+    const matches = [];
     for (let user of arr) {
-        return user.email;
+        if (pattern.test(user.email)) {
+            matches.push(user.email);
+        }
     }
-    return null;
-    const pattern = /[A-Za-z0-9.-_]+(@gmail|@yahoo)\.com/g;
-    const matches = user.email.match(pattern);
+    return matches;
   }
   console.log(findEmail(arr));
 
 
 
 
-  // const str = "test.test@gmail.com dmitro.porohov@yahoo.com andrii@mail.ru"
-// const pattern = /[A-Za-z0-9.-_]+(@gmail|@yahoo)\.com/g;
-// const matches = str.match(pattern);
-// console.log(matches);
